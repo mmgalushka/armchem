@@ -1,0 +1,31 @@
+# =====================================================
+# Copyright (c) 2017-present, AUROMIND Ltd.
+# =====================================================
+
+version: 1
+formatters:
+  simple:
+    format: '%(asctime)s.%(msecs)03d - %(name)s - %(levelname)s - %(message)s'
+    datefmt: '%H:%M:%S'
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: simple
+    stream: ext://sys.stdout
+  info_file_handler:
+    class: logging.handlers.RotatingFileHandler
+    level: INFO
+    formatter: simple
+    filename: training.log
+    maxBytes: 10485760 # 10MB
+    backupCount: 10
+    encoding: utf8
+loggers:
+  LOGGER:
+    level: DEBUG
+    handlers: [console, info_file_handler]
+    propagate: no
+root:
+  level: INFO
+  handlers: [console, info_file_handler]
