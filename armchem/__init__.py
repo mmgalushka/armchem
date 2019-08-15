@@ -8,4 +8,4 @@ from network import create_regressor, create_classifier, create_autoencoder, loa
 from estimator import create_estimator
 from experiments import run_cross_validation, run_single_validation
 from utils import save_object, load_object
-from report import plot_history, plot_metrics, print_summary, plot_xxx, plot_yyy
+from report import print_summary

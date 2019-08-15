@@ -199,6 +199,7 @@ class DiskDataset:
     def iterator(self, feature_metadata, target_metadata):
         return DatasetIterator(
             csv.reader(open(self.__path, 'rb'), delimiter=','),
+            self.__mirror,
             feature_metadata,
             target_metadata
         )

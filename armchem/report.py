@@ -2,6 +2,9 @@
 # Copyright (c) 2017-present, AUROMIND Ltd.
 # =====================================================
 
+import numpy as np
+from tabulate import tabulate
+from tqdm import tqdm
 from experiments import (
     SingleValidationExperiment,
     CrossValidationExperiment
@@ -11,7 +14,6 @@ from models import (
     is_regressor,
     is_classifier
 )
-from tabulate import tabulate
 from sklearn.metrics import (
     roc_curve,
     auc,
@@ -80,9 +82,11 @@ def _print_autoencoder_summary(y_true, y_pred):
 
     print '\nAutoencoding Summary:\n'
     print tabulate(
-        [['Mean Hamming Error', '%0.3f' % float(hd)/float(N)]],
-        [['Mean Levenshtein Error', '%0.3f' % float(ld)/float(N)]],
-        [['Reconstruction Accuracy', '%0.3f' % float(rc)/float(N)]],
+        [
+            ['Mean Hamming Error', '%0.3f' % (float(hd)/float(N))],
+            ['Mean Levenshtein Error', '%0.3f' % (float(ld)/float(N))],
+            ['Reconstruction Accuracy', '%0.3f' % (float(rc)/float(N))]
+        ],
         headers=['Measurements Name', 'Measurements Value']
     )
 
@@ -138,7 +142,7 @@ def _print_classifier_summary(y_true, y_pred):
     # Computes an average of true positive rates.
     mean_tpr /= n_classes
 
-    print '\Classification Summary:\n'
+    print '\nClassification Summary:\n'
     print tabulate(
         [
             ['ROC-AUC', '%0.3f' % auc(all_fpr, mean_tpr)]
@@ -155,7 +159,7 @@ def _print_classifier_summary(y_true, y_pred):
     cr = classification_report(l_true, l_pred)
     print cr
 
-    print '\nConfusion Metrix:\n'
+    print '\nConfusion Matrix:\n'
     cm = confusion_matrix(l_true, l_pred)
     labels = list(range(len(cm)))
     cm = np.concatenate(

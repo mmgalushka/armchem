@@ -69,9 +69,6 @@ class NumericTransformer(TransformerMix):
         return (float(value) - self._profile.get_minimum()) / (self._profile.get_maximum() - self._profile.get_minimum())
 
     def decode(self, value):
-        print 'value -> ', value
-        print 'self._profile.get_maximum() -> ', self._profile.get_maximum()
-        print 'self._profile.get_minimum() -> ', self._profile.get_minimum()
         return float(value) * (self._profile.get_maximum() - self._profile.get_minimum()) + self._profile.get_minimum()
 
 

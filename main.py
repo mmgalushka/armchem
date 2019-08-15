@@ -124,6 +124,14 @@ def runCmdTrain(argv):
         default=False
     )
 
+    autoencoder_parser.add_argument(
+        '-v', '--verbose',
+        action='store_const',
+        const=True,
+        help='set verbose mode;',
+        default=False
+    )
+
     # -----------------------------------------------------------
     # Defines command-line options for train a classifier.
     # -----------------------------------------------------------
@@ -259,6 +267,14 @@ def runCmdTrain(argv):
         action='store_const',
         const=True,
         help='set computation in memory;',
+        default=False
+    )
+
+    regressor_parser.add_argument(
+        '-v', '--verbose',
+        action='store_const',
+        const=True,
+        help='set verbose mode;',
         default=False
     )
 
