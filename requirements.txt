@@ -1,10 +1,13 @@
 # Copyright (c) 2017-present, AUROMIND Ltd.
+#
+# ARCHIVED: best-guess pins for the Python 2.7 / TensorFlow 1.x era.
+# The exact versions this project was last run with were not recorded.
 
-pyyaml
-tensorflow
-numpy>=1.8.2
-scikit-learn
-h5py
-matplotlib
+pyyaml<6
+tensorflow>=1.4,<2
+numpy>=1.13,<1.17
+scikit-learn<0.21
+h5py<3
+matplotlib<3
 tabulate
 tqdm

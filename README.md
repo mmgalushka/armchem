@@ -1,3 +1,5 @@
+> 📦 **Archived.** This project is no longer maintained. It was written around 2017–2018 for **Python 2.7** and **TensorFlow 1.x** (it imports from `tensorflow.python.keras`) and will not run unmodified on Python 3 or current TensorFlow. It is kept for reference only. The exact versions it was last run with were not recorded; see `requirements.txt` for a best-guess pin.
+
 **ArmChem** tool has been released by [AUROMIND Ltd.](https://www.auromind.org) under MIT License. It allows training [Deep Learning](https://en.wikipedia.org/wiki/Deep_learning) models for predicting properties of chemical compounds defined by [SMILES](https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system).
 
 
@@ -68,7 +70,7 @@ To install the [Python virtual environment](https://virtualenv.pypa.io/en/latest
 $ ./helper.sh init
 ```
 
-If the execution of this command is successful
+If the command succeeds, a virtual environment is created in `.env` and all packages from `requirements.txt` are installed. The environment must be created with Python 2.7.
 
 
 **Note:** 
